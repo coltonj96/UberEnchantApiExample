@@ -1,0 +1,6 @@
+name: UberExample
+author: coltonj96
+main: com.aim.coltonjgriswold.uber.UberExample
+version: 0.0.1
+api-version: 1.19
+depend: [UberEnchant]
