@@ -22,12 +22,15 @@ public class UberExample extends JavaPlugin {
 	// Create new file instance of our custom config
 	File file = new File(getDataFolder(), "enchantments.yml");
 	
+	// Create instance of Lightning Strike enchantment
+	LightningStrike enchantment = new LightningStrike();
+	
 	// Check if our file exists
 	if (!file.exists()) {
 	    
 	    // Register Lightning Strike with UberEnchant and add to UberRecords
 	    UberConfiguration.registerUberRecord(
-		new LightningStrike(),		// Create new instance of Lightning Strike
+		enchantment,			// Create new instance of Lightning Strike
 		1000.0,				// Set cost to use via UberEnchant
 		0.4,				// Set cost multiplier
 		100.0,				// Set removal cost
@@ -39,6 +42,10 @@ public class UberExample extends JavaPlugin {
 	    // Save to our config
 	    UberConfiguration.saveToFile(this, file);
 	} else {
+	    
+	    // Register our enchantment so it can be found
+	    enchantment.register();
+	    
 	    // Load our config
 	    UberConfiguration.loadFromFile(file);
 	}
